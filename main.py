@@ -32,11 +32,11 @@ def runOneCreature(brain):
         elif(action==3):
             creature.moveRight()
         elif(action==4):
-            pass
+            creature.wait()
         creature.moveEnemies()
         turns+=1
         score+=creature.energy
-        return score
+    return score
 
 def runGeneration(parentBrain,childrenCount):
     bestBrain=parentBrain
@@ -81,8 +81,8 @@ def main():
     gridSize=30
     inputSize=gridSize*gridSize+1
     brain=Brain(inputSize)
-    generations=100 
-    childrenPerGen=100
+    generations=50
+    childrenPerGen=20
     for generation in range(generations):
         brain,score=runGeneration(brain,childrenPerGen)
     brain.save("bestBrain.pk1")

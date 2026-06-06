@@ -16,9 +16,6 @@ class Creature:
         self.energy=50
         self.isAlive=True
    
-    def isAlive(self):
-        return isAlive
-    
     def die(self):
         self.energy=0
         self.isAlive=False
