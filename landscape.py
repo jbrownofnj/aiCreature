@@ -58,7 +58,7 @@ class Landscape:
                     isEnemy=percent>random.random()
                     if(isEnemy):
                         self.grid[y][x]=3
-    
+   #This is temp a 1 until i want to add in hole logic 
     def addHoles(self,percent):
         gSize=len(self.grid)
         for y in range(gSize):
@@ -66,7 +66,7 @@ class Landscape:
                 if(self.isDirt(x,y)):
                     isHole=percent>random.random()
                     if(isHole):
-                        self.grid[y][x]=4
+                        self.grid[y][x]=1
 
     def addObsticles(self,num):
         gSize=len(self.grid)
@@ -84,12 +84,12 @@ class Landscape:
                 for j in range(length):
                     self.grid[yPos][xPos+j]=0
     
-    def populateLandscape(self):
+    def populateLandscape(self,obsN,foodP,enemyP,holesP):
         self.addDirt()
-        self.addObsticles(4)
-        self.addFood(0.03)
-        self.addEnemies(0.025)
-        self.addHoles(0.015)
+        self.addObsticles(obsN)
+        self.addFood(foodP)
+        self.addEnemies(enemyP)
+        self.addHoles(holesP)
 
     
 def main():

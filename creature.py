@@ -13,7 +13,7 @@ class Creature:
         self.x=None
         self.y=None
         self.landscape=None
-        self.energy=50
+        self.energy=7
         self.isAlive=True
    
     def die(self):
@@ -23,7 +23,6 @@ class Creature:
     def enterLandscape(self, landscape):
         gSize=len(landscape.grid)
         randPick=self.pickSpot(landscape)
-        time.sleep(0.2)
        #print(f"We checking {randPick}")
        #print(f"Our value there is {landscape.grid[randPick[1]][randPick[0]]}")
         if(landscape.isDirt(randPick[1],randPick[0])==False):
