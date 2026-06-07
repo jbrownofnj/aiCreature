@@ -8,12 +8,11 @@ from collections import deque
 class Creature:
     
     def __init__(self):
-        self.energy=50
         self.brain=None
         self.x=None
         self.y=None
         self.landscape=None
-        self.energy=7
+        self.energy=10
         self.isAlive=True
    
     def die(self):
@@ -43,14 +42,16 @@ class Creature:
 
     def moveUp(self):
         self.energy=self.energy-1
-       # print(f"Starting move up currently at {self.x},{self.y}")
+        if(self.energy==0):
+            self.die()
+       #print(f"Starting move up currently at {self.x},{self.y}")
         nextSpotVal=self.landscape.grid[self.y-1][self.x]
-       # print(f"The spot above me is: {nextSpotVal}")
+       #print(f"The spot above me is: {nextSpotVal}")
         if(nextSpotVal != 0 and nextSpotVal != 3):
            # print("Spots Open")
             if(nextSpotVal==2):
                # print(f"Found energy. Was {self.energy}")
-                self.energy=self.energy+10
+                self.energy=self.energy+50
                # print(f"Now energy is {self.energy}")
             self.y=self.y-1
             self.landscape.grid[self.y][self.x]=5
@@ -59,30 +60,36 @@ class Creature:
 
     def moveDown(self): 
         self.energy=self.energy-1
+        if(self.energy==0):
+            self.die()
         nextSpotVal=self.landscape.grid[self.y+1][self.x]
         if(nextSpotVal !=0 and nextSpotVal != 3):
             if(nextSpotVal==2):
-                self.energy=self.energy+10
+                self.energy=self.energy+50
             self.y=self.y+1
             self.landscape.grid[self.y][self.x]=5
             self.landscape.grid[self.y-1][self.x]=1
     
     def moveRight(self): 
         self.energy=self.energy-1
+        if(self.energy==0):
+            self.die()
         nextSpotVal=self.landscape.grid[self.y][self.x+1]
         if(nextSpotVal !=0 and nextSpotVal != 3):
             if(nextSpotVal==2):
-                self.energy=self.energy+10
+                self.energy=self.energy+50
             self.x=self.x+1
             self.landscape.grid[self.y][self.x]=5
             self.landscape.grid[self.y][self.x-1]=1
     
     def moveLeft(self): 
         self.energy=self.energy-1
+        if(self.energy==0):
+            self.die()
         nextSpotVal=self.landscape.grid[self.y][self.x-1]
         if(nextSpotVal !=0 and nextSpotVal != 3):
             if(nextSpotVal==2):
-                self.energy=self.energy+10
+                self.energy=self.energy+50
             self.x=self.x-1
             self.landscape.grid[self.y][self.x]=5
             self.landscape.grid[self.y][self.x+1]=1

@@ -92,7 +92,7 @@ def main():
     gridSize=30
     inputSize=gridSize*gridSize+1
     brain=Brain(inputSize)
-    generations=50
+    generations=10
     childrenPerGen=50
     topScore=0
     for generation in range(generations):
