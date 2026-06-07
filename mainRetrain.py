@@ -1,8 +1,8 @@
 from brain import Brain
 from creature import Creature
 from landscape import Landscape
-from main import printOneCreature
-from main import runGeneration
+from main import printOneCreature, runGeneration
+
 
 def main():
     brain = Brain.load("bestBrain.pkl")
@@ -22,6 +22,7 @@ def main():
             topScore = newScore
             brain.save("bestBrain2.pkl")
     printOneCreature(brain)
+
 
 if __name__ == "__main__":
     main()

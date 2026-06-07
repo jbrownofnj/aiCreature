@@ -4,11 +4,11 @@ from landscape import Landscape
 from main import printOneCreature
 
 
-
 def main():
     brain = Brain.load("bestBrain.pkl")
     gridSize = 30
-    printOneCreature(brain,gridSize)
+    printOneCreature(brain, gridSize)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     main()

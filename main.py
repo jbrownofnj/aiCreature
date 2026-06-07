@@ -71,7 +71,7 @@ def runGeneration(parentBrain, childrenCount, genNum, rate=0.05, strength=0.01):
     print(f"The best Score in generation {genNum} was:{bestScore}")
     return bestBrain, bestScore
 
-        
+
 def printOneCreature(
     brain,
     gSize=30,
@@ -113,10 +113,7 @@ def printOneCreature(
         landscape.printLandscape()
         print(f"Score:{score}")
         time.sleep(0.5)
-    print(f"Final Score is:{score}")    
-
-    
-
+    print(f"Final Score is:{score}")
 
 
 def main():
@@ -124,7 +121,7 @@ def main():
     brain = Brain(9)
     generations = 100
     childrenPerGen = 50
-    topScore = 0
+    topScore = 400
     rate = 0.05
     strength = 0.05
     for generation in range(generations):
@@ -136,7 +133,8 @@ def main():
             brain = newBrain
             topScore = newScore
             brain.save("bestBrain.pkl")
-    printOneCreature(brain,gridSize)
+    printOneCreature(brain, gridSize)
+
 
 if __name__ == "__main__":
     main()
