@@ -91,8 +91,8 @@ def printOneCreature(brain):
 def main():
     gridSize=30
     inputSize=gridSize*gridSize+1
-    brain=Brain(inputSize)
-    generations=10
+    brain=Brain(9)
+    generations=100
     childrenPerGen=50
     topScore=0
     for generation in range(generations):

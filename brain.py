@@ -20,7 +20,7 @@ class Brain:
         downLeft=grid[creature.y+1][creature.x-1]
         downRight=grid[creature.y+1][creature.x+1]
 
-        gridInputs=np.array(up,upLeft,upRight,left,right,down,downLeft,downRight)/4.0
+        gridInputs=np.array([up,upLeft,upRight,left,right,down,downLeft,downRight],dtype=float)/4.0
         energyInput=np.array([energy/maxEnergy])
         inputs=np.concatenate((gridInputs,energyInput))
         return inputs
