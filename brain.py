@@ -10,14 +10,23 @@ class Brain:
         self.b1=np.zeros(hiddenSize)
         self.w2=np.random.randn(self.outputSize,hiddenSize)*0.1
         self.b2=np.zeros(5)
-    def makeInputs(self,grid,energy,maxEnergy):
-        gridInputs=np.array(grid).flatten() / 4.0
+    def makeInputs(self,grid,creature,energy,maxEnergy):
+        up=grid[creature.y-1][creature.x]
+        upLeft=grid[creature.y-1][creature.x-1]
+        upRight=grid[creature.y-1][creature.x+1]
+        left=grid[creature.y][creature.x-1]
+        right=grid[creature.y][creature.x+1]
+        down=grid[creature.y+1][creature.x]
+        downLeft=grid[creature.y+1][creature.x-1]
+        downRight=grid[creature.y+1][creature.x+1]
+
+        gridInputs=np.array(up,upLeft,upRight,left,right,down,downLeft,downRight)/4.0
         energyInput=np.array([energy/maxEnergy])
         inputs=np.concatenate((gridInputs,energyInput))
         return inputs
 
-    def think(self,grid,energy,maxEnergy):
-        inputs=self.makeInputs(grid,energy,maxEnergy)
+    def think(self,grid,creature,energy,maxEnergy):
+        inputs=self.makeInputs(grid,creature,energy,maxEnergy)
         hidden=np.tanh(self.w1 @ inputs + self.b1)
         outputs=self.w2 @ hidden +self.b2
         action=np.argmax(outputs)

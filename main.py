@@ -26,7 +26,7 @@ def runOneCreature(brain):
         turns=0
         creature,landscape=createGameSetup(gridSize,obsN,foodPercent,enemyPercent,holePercent)
         while(creature.isAlive and turns<maxTurns):
-            action=brain.think(landscape.grid,creature.energy,maxEnergy)
+            action=brain.think(landscape.grid,creature,creature.energy,maxEnergy)
             if(action==0):
                 creature.moveUp()
             elif(action==1):
@@ -70,7 +70,7 @@ def printOneCreature(brain):
     score=0
     turns=0
     while(creature.isAlive and turns<maxTurns):
-        action=brain.think(landscape.grid,creature.energy,maxEnergy)
+        action=brain.think(landscape.grid,creature,creature.energy,maxEnergy)
         if(action==0):
             creature.moveUp()
         elif(action==1):
