@@ -16,6 +16,7 @@ def main():
         newBrain, newScore = runGeneration(
             brain, childrenPerGen, generation, rate, strength
         )
+        print(f"Score is currently:{topScore}")
         if newScore > topScore:
             print("A new brain has taken the throne!")
             brain = newBrain
